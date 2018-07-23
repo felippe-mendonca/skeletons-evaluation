@@ -27,12 +27,12 @@ def get_dataset_range(basedir, dataset, cameras, model):
 log = Logger()
 options = load_options()
 
-with open('panoptic_datasets.json', 'r') as f:
-  panoptic_data = json.load(f)
-datasets = panoptic_data['datasets']
-model = panoptic_data['model']
-cameras = panoptic_data['cameras']
-get_range = True
+with open('{}_datasets.json'.format(options['dataset_group']), 'r') as f:
+  datasets_data = json.load(f)
+datasets = datasets_data['datasets']
+model = datasets_data['model']
+cameras = datasets_data['cameras']
+get_range = datasets_data['get_range']
 
 for dataset in datasets:
   readers = {}

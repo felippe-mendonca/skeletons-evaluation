@@ -14,11 +14,12 @@ from utils.io import ProtobufReader, ProtobufWriter
 options = load_options('../global_options.json')
 
 log = Logger()
-with open('../panoptic_datasets.json', 'r') as f:
-  panoptic_data = json.load(f)
-datasets = panoptic_data['datasets']
-model = panoptic_data['model']
-cameras = panoptic_data['cameras']
+with open('../{}_datasets.json'.format(options['dataset_group']), 'r') as f:
+  datasets_data = json.load(f)
+datasets = datasets_data['datasets']
+model = datasets_data['model']
+cameras = datasets_data['cameras']
+width, height = datasets_data['resolution']['width'], datasets_data['resolution']['height']
 
 for dataset in datasets:
   dataset_folder = os.path.join(options['data_folder'], dataset)
@@ -38,8 +39,8 @@ for dataset in datasets:
 
       objs = ObjectAnnotations()
       # panoptic dataset HD cameras resolution
-      objs.resolution.width = 1920
-      objs.resolution.height = 1080
+      objs.resolution.width = width
+      objs.resolution.height = height
       for sk in sks.skeletons:
         obj = objs.objects.add()
         for part in sk.parts:

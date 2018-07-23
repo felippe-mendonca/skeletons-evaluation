@@ -1,0 +1,13 @@
+{
+  "datasets" : [
+    "hpn-001"
+  ],
+  "model": "coco",
+  "cameras": [1, 2, 3, 4],
+  "referencial": 1000,
+  "resolution": {
+    "width": 720,
+    "height": 540
+  },
+  "get_range": false
+}
