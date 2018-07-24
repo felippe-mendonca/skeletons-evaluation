@@ -1,0 +1,22 @@
+{
+  "dataset": "160422_haggling1",
+  "model": "coco",
+  "source": "detector",
+  "histogram_bins": {
+    "xmin": -250, 
+    "xmax":  250, 
+    "ymin": -400, 
+    "ymax":  250,
+    "step":  10 
+  },
+  "axis_lookup": {
+    "x": "x",
+    "y": "z"
+  },
+  "figsize": {
+    "width": 5,
+    "height": 5
+  },
+  "log_scale": true,
+  "average_coordinates": false
+}
